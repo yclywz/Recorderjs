@@ -58,7 +58,7 @@ var Recorder = exports.Recorder = function () {
         this.context = source.context;
         this.node = (this.context.createScriptProcessor || this.context.createJavaScriptNode).call(this.context, this.config.bufferLen, this.config.numChannels, this.config.numChannels);
 
-        this.expectedBufferTime = this.config.bufferLen / 44100 * 1000; // in milliseconds
+        this.expectedBufferTime = this.config.bufferLen / this.context.sampleRate * 1000; // in milliseconds
         this.audioProcessStartTime = null;
         this.audioProcessEndTime = null;
         this.totalNumberOfBuffers = 0;
